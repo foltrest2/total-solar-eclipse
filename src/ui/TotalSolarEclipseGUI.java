@@ -17,16 +17,16 @@ public class TotalSolarEclipseGUI {
 
     @FXML
     public void moveBackward(ActionEvent event) {
-    	double x = sun.getLayoutX();
+    	double x = moon.getLayoutX();
     	x = x - STEP;
-    	sun.setLayoutX(x);
+    	moon.setLayoutX(x);
     }
 
     @FXML
     public void moveForward(ActionEvent event) {
-    	double x = sun.getLayoutX();
+    	double x = moon.getLayoutX();
     	x = x + STEP;
-    	sun.setLayoutX(x);
+    	moon.setLayoutX(x);
     }
 
 }
