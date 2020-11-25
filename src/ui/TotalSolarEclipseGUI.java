@@ -16,19 +16,17 @@ public class TotalSolarEclipseGUI {
     public final static double STEP = 25; 
 
     @FXML
-    public void moveBack(ActionEvent event) {
+    public void moveBackward(ActionEvent event) {
     	double x = sun.getLayoutX();
     	x = x - STEP;
     	sun.setLayoutX(x);
-    	
     }
 
     @FXML
-    public void moveRight(ActionEvent event) {
+    public void moveForward(ActionEvent event) {
     	double x = sun.getLayoutX();
     	x = x + STEP;
     	sun.setLayoutX(x);
     }
-
 
 }
