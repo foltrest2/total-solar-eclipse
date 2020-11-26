@@ -32,7 +32,10 @@ public class TotalSolarEclipseGUI {
     	double x = moon.getLayoutX();
     	x = x - STEP;
     	moon.setLayoutX(x);
+
     	changes();
+
+
     }
 
 
@@ -41,7 +44,9 @@ public class TotalSolarEclipseGUI {
     	double x = moon.getLayoutX();
     	x = x + STEP;
     	moon.setLayoutX(x);
+
     	changes();
+
     }
 	
 
