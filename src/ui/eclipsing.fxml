@@ -7,7 +7,7 @@
 
 <Pane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: yellow;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Circle fx:id="mars" fill="DODGERBLUE" layoutX="492.0" layoutY="51.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: brown;" />
+      <Circle fx:id="mars" fill="DODGERBLUE" layoutX="492.0" layoutY="51.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: brown;" visible="false" />
       <Circle fx:id="sun" fill="DODGERBLUE" layoutX="300.0" layoutY="161.0" radius="45.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: yellow;" />
       <AnchorPane fx:id="moon" layoutY="112.0" prefHeight="90.0" prefWidth="96.0">
          <children>

@@ -168,13 +168,22 @@ public class TotalSolarEclipseGUI {
 			star11.setFill(Color.color(Math.random(), Math.random(), Math.random()));
 			star12.setVisible(true);
 			star12.setFill(Color.color(Math.random(), Math.random(), Math.random()));
-
-
-
 		} else {
 			mars.setVisible(false);
 			venus.setVisible(false);
 			jupiter.setVisible(false);
+			star1.setVisible(false);
+			star2.setVisible(false);
+			star3.setVisible(false);
+			star4.setVisible(false);
+			star5.setVisible(false);
+			star6.setVisible(false);
+			star7.setVisible(false);
+			star8.setVisible(false);
+			star9.setVisible(false);
+			star10.setVisible(false);
+			star11.setVisible(false);
+			star12.setVisible(false);
 		}
 	}
 }
