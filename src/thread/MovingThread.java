@@ -15,11 +15,11 @@ public class MovingThread extends Thread{
 	}
 
 	public void run() {	
-		while(true) {
+		while(tsegui.isGo()) {
 			moon.move();
 			Platform.runLater(new Thread() {
 				public void run() {
-					tsegui.updateMoon(moon.getX());;
+					tsegui.updateMoon(moon.getX());
 				}
 			});
 			try {

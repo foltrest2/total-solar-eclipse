@@ -71,11 +71,15 @@ public class TotalSolarEclipseGUI {
 	@FXML
 	private Circle star12;
 
-	boolean bouncing;
+	private boolean go;
+
+	public boolean isGo() {
+		return go;
+	}
 
 	public TotalSolarEclipseGUI(Stage st) {
 		window = st;
-		bouncing = true;
+		go = true;
 	}
 
 	public final static double STEP = 25; 
@@ -87,7 +91,7 @@ public class TotalSolarEclipseGUI {
 
 			@Override
 			public void handle(WindowEvent event) {
-				bouncing = false;
+				go = false;
 				System.out.println("Closing the window!");
 			}
 		});
@@ -96,31 +100,39 @@ public class TotalSolarEclipseGUI {
 
 	@FXML
 	public void move(ActionEvent event) {
-		m.setMax(window.getWidth());
-		new Thread() {
-			public void run() {
-				while(bouncing) {
-					m.move();
-					changes();
-					Platform.runLater(new Thread() {
-						public void run() {
-							updateMoon(m.getX());
-						}
-					});
+		go = true;
+		if(go) {
+			m.setMax(window.getWidth());
+			new Thread() {
+				public void run() {
+					while(go) {
+						m.move();
+						changes();
+						Platform.runLater(new Thread() {
+							public void run() {
+								updateMoon(m.getX());
+							}
+						});
 
-					try {
-						Thread.sleep(10);
-					} catch (InterruptedException e) {
-						e.printStackTrace();
+						try {
+							Thread.sleep(10);
+						} catch (InterruptedException e) {
+							e.printStackTrace();
+						}
 					}
 				}
-			}
-		}.start();
-
+			}.start();
+		}
 	}
 
+	@FXML
+	void stop(ActionEvent event) {
+		go = false;
+	}
 	public void updateMoon(double x) {
-		moon.setLayoutX(x);
+		if(go) {
+			moon.setLayoutX(x);
+		}
 	}
 
 	private void changes() {
@@ -141,49 +153,56 @@ public class TotalSolarEclipseGUI {
 			mainPane.setBackground(new Background(new BackgroundFill(Color.web("#FFFF00" ), null, null)));
 		}
 		if(moon.getLayoutX() >= 162 &&  moon.getLayoutX() < 351) {
-			mars.setVisible(true);
-			venus.setVisible(true);
-			jupiter.setVisible(true);
-			star1.setVisible(true);
-			star1.setFill(Color.color(Math.random(), Math.random(), Math.random()));
-			star2.setVisible(true);
-			star2.setFill(Color.color(Math.random(), Math.random(), Math.random()));
-			star3.setVisible(true);
-			star3.setFill(Color.color(Math.random(), Math.random(), Math.random()));
-			star4.setVisible(true);
-			star4.setFill(Color.color(Math.random(), Math.random(), Math.random()));
-			star5.setVisible(true);
-			star5.setFill(Color.color(Math.random(), Math.random(), Math.random()));
-			star6.setVisible(true);
-			star6.setFill(Color.color(Math.random(), Math.random(), Math.random()));
-			star7.setVisible(true);
-			star7.setFill(Color.color(Math.random(), Math.random(), Math.random()));
-			star8.setVisible(true);
-			star8.setFill(Color.color(Math.random(), Math.random(), Math.random()));
-			star9.setVisible(true);
-			star9.setFill(Color.color(Math.random(), Math.random(), Math.random()));
-			star10.setVisible(true);
-			star10.setFill(Color.color(Math.random(), Math.random(), Math.random()));
-			star11.setVisible(true);
-			star11.setFill(Color.color(Math.random(), Math.random(), Math.random()));
-			star12.setVisible(true);
-			star12.setFill(Color.color(Math.random(), Math.random(), Math.random()));
+			makePlanetsAndStars();
 		} else {
-			mars.setVisible(false);
-			venus.setVisible(false);
-			jupiter.setVisible(false);
-			star1.setVisible(false);
-			star2.setVisible(false);
-			star3.setVisible(false);
-			star4.setVisible(false);
-			star5.setVisible(false);
-			star6.setVisible(false);
-			star7.setVisible(false);
-			star8.setVisible(false);
-			star9.setVisible(false);
-			star10.setVisible(false);
-			star11.setVisible(false);
-			star12.setVisible(false);
+			hidePlanetsAndStars();
 		}
+	}
+	public void makePlanetsAndStars() {
+		mars.setVisible(true);
+		venus.setVisible(true);
+		jupiter.setVisible(true);
+		star1.setVisible(true);
+		star1.setFill(Color.color(Math.random(), Math.random(), Math.random()));
+		star2.setVisible(true);
+		star2.setFill(Color.color(Math.random(), Math.random(), Math.random()));
+		star3.setVisible(true);
+		star3.setFill(Color.color(Math.random(), Math.random(), Math.random()));
+		star4.setVisible(true);
+		star4.setFill(Color.color(Math.random(), Math.random(), Math.random()));
+		star5.setVisible(true);
+		star5.setFill(Color.color(Math.random(), Math.random(), Math.random()));
+		star6.setVisible(true);
+		star6.setFill(Color.color(Math.random(), Math.random(), Math.random()));
+		star7.setVisible(true);
+		star7.setFill(Color.color(Math.random(), Math.random(), Math.random()));
+		star8.setVisible(true);
+		star8.setFill(Color.color(Math.random(), Math.random(), Math.random()));
+		star9.setVisible(true);
+		star9.setFill(Color.color(Math.random(), Math.random(), Math.random()));
+		star10.setVisible(true);
+		star10.setFill(Color.color(Math.random(), Math.random(), Math.random()));
+		star11.setVisible(true);
+		star11.setFill(Color.color(Math.random(), Math.random(), Math.random()));
+		star12.setVisible(true);
+		star12.setFill(Color.color(Math.random(), Math.random(), Math.random()));
+	}
+
+	public void hidePlanetsAndStars() {
+		mars.setVisible(false);
+		venus.setVisible(false);
+		jupiter.setVisible(false);
+		star1.setVisible(false);
+		star2.setVisible(false);
+		star3.setVisible(false);
+		star4.setVisible(false);
+		star5.setVisible(false);
+		star6.setVisible(false);
+		star7.setVisible(false);
+		star8.setVisible(false);
+		star9.setVisible(false);
+		star10.setVisible(false);
+		star11.setVisible(false);
+		star12.setVisible(false);
 	}
 }
