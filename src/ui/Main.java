@@ -8,14 +8,19 @@ import javafx.stage.Stage;
 
 public class Main extends Application{
 
+	private TotalSolarEclipseGUI tsegui;
+	
 	public static void main(String[] args) {
 		launch(args);
 	}
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		Parent root = FXMLLoader.load(getClass().getResource("eclipsing.fxml"));
+		tsegui = new TotalSolarEclipseGUI(primaryStage);
 		
+		FXMLLoader fxmll = new FXMLLoader(getClass().getResource("eclipsing.fxml"));
+		fxmll.setController(tsegui);
+		Parent root = fxmll.load();
 		Scene scene = new Scene(root);
 		primaryStage.setScene(scene);
 		primaryStage.setTitle("A beautiful eclipse");

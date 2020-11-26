@@ -5,10 +5,10 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Circle?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: yellow;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.TotalSolarEclipseGUI">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: yellow;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Circle fx:id="sun" fill="DODGERBLUE" layoutX="300.0" layoutY="158.0" radius="45.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: yellow;" />
-      <AnchorPane fx:id="moon" layoutX="8.0" layoutY="109.0" prefHeight="90.0" prefWidth="96.0">
+      <Circle fx:id="sun" fill="DODGERBLUE" layoutX="300.0" layoutY="161.0" radius="45.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: yellow;" />
+      <AnchorPane fx:id="moon" layoutY="112.0" prefHeight="90.0" prefWidth="96.0">
          <children>
             <Circle fill="DODGERBLUE" layoutX="45.0" layoutY="52.0" radius="45.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: gray;" />
             <Circle fill="DODGERBLUE" layoutX="61.0" layoutY="39.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: brown;" />
@@ -16,7 +16,6 @@
             <Circle fill="DODGERBLUE" layoutX="56.0" layoutY="69.0" radius="17.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #000000;" />
          </children>
       </AnchorPane>
-      <Button layoutX="30.0" layoutY="304.0" mnemonicParsing="false" onAction="#moveBackward" text="Backward" />
-      <Button layoutX="510.0" layoutY="304.0" mnemonicParsing="false" onAction="#moveForward" text="Forward" />
+      <Button layoutX="274.0" layoutY="304.0" mnemonicParsing="false" onAction="#move" text="Move" />
    </children>
 </Pane>

@@ -1,38 +1,35 @@
 package thread;
 
 import javafx.application.Platform;
+import model.Moon;
+import ui.TotalSolarEclipseGUI;
 
 public class MovingThread extends Thread{
 
-	
-	
-	
-	public MovingThread() {
-		
+	private Moon moon;
+	private TotalSolarEclipseGUI tsegui;
+
+	public MovingThread(Moon m, TotalSolarEclipseGUI t) {
+		moon = m;
+		tsegui = t;
 	}
-	
-	public void run() {
-		
+
+	public void run() {	
 		while(true) {
-			
-			//advance
-//			clock.rotateHands();
-			
+			moon.move();
 			Platform.runLater(new Thread() {
 				public void run() {
-					
-					//clase cotroladora de la GUI actualiza el movimiento
-//					clockGUI.updateClock();
+					tsegui.updateMoon(moon.getX());;
 				}
 			});
-			
 			try {
-				Thread.sleep(5);
+				Thread.sleep(100);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-			
 		}
+
 	}
-	
 }
+
+
