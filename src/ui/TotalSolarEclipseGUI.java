@@ -4,6 +4,7 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.scene.control.Slider;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
@@ -70,6 +71,9 @@ public class TotalSolarEclipseGUI {
 
 	@FXML
 	private Circle star12;
+	
+	  @FXML
+	    private Slider slider;
 
 	private boolean go;
 
@@ -115,7 +119,9 @@ public class TotalSolarEclipseGUI {
 						});
 
 						try {
-							Thread.sleep(10);
+							
+							
+							Thread.sleep((long)( slider.getMax() - slider.getValue()));
 						} catch (InterruptedException e) {
 							e.printStackTrace();
 						}
