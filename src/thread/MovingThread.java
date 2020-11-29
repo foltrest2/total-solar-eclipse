@@ -12,6 +12,7 @@ public class MovingThread extends Thread{
 	public MovingThread(Moon m, TotalSolarEclipseGUI t) {
 		moon = m;
 		tsegui = t;
+		setDaemon(true);
 	}
 
 	public void run() {	

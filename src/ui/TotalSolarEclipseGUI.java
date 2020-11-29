@@ -71,9 +71,9 @@ public class TotalSolarEclipseGUI {
 
 	@FXML
 	private Circle star12;
-	
-	  @FXML
-	    private Slider slider;
+
+	@FXML
+	private Slider slider;
 
 	private boolean go;
 
@@ -119,8 +119,6 @@ public class TotalSolarEclipseGUI {
 						});
 
 						try {
-							
-							
 							Thread.sleep((long)( slider.getMax() - slider.getValue()));
 						} catch (InterruptedException e) {
 							e.printStackTrace();
